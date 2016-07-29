@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>todo list</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/assets/styles.css" >
+  <script type="text/javascript" src="/assets/chat-list.js"></script>
+</head>
+<body>
+  <h1>My todo list</h1>
+<div id="mess-table">
+  <form method="post">
+    <input type="text" name="name" id="name" placeholder="Name">
+    <button type="submit">Add message</button><br>
+  <input type="text" name="item" id="item" placeholder="Add new message..." required />
+
+  </form>
+  <ul>
+  <% for(var i=0; i<data.length; i++){ %>
+    <li><%= data[i].name %>:<%= data[i].item %></li>
+    <% } %>
+  </ul>
+</div>
+</body>
+</html>
