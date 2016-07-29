@@ -7,10 +7,9 @@
   <script type="text/javascript" src="/assets/chat-list.js"></script>
 </head>
 <body>
-  <h1>My todo list</h1>
 <div id="mess-table">
   <form method="post">
-    <input type="text" name="name" id="name" placeholder="Name">
+    <input type="text" name="name" id="name" value="<%= name %>" placeholder="Name" required>
     <button type="submit">Add message</button><br>
   <input type="text" name="item" id="item" placeholder="Add new message..." required />
 

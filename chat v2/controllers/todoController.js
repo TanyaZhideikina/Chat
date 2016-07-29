@@ -9,17 +9,19 @@ var messSchema = new mongoose.Schema({
 var Mess = mongoose.model('Mess', messSchema);
 var urlencodedParser = bodyParser.urlencoded({extended:false});
 module.exports = function (app) {
-
+var name = "User";
 app.get('/',function (req,res) {
 Mess.find({}, function (err, data) {
     if (err) throw err;
-    res.render('todo', {data: data});
+    if(data.name == "") data.name = name;
+    res.render('todo', {name:name, data: data});
   });
 });
 
 app.post('/', urlencodedParser, function (req,res) {
   var newMess = Mess(req.body).save(function (err, data) {
     if(err) throw err;
+    name = data.name;
     res.json(data);
   });
   console.log(req.body);
